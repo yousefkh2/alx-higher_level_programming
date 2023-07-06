@@ -1,0 +1,82 @@
+================================================
+How to Use 2-matrix_divided.py
+================================================
+
+The `matrix_divided(matrix, div)` function takes a matrix and a divisor as input and returns a new matrix as the result.
+
+Usage
+=====
+
+The function `matrix_divided(...)` divides each element of a matrix by the divisor and returns a new matrix.
+
+Example:
+--------
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Note: The resulting values are rounded to two decimal places.
+
+Important Points
+================
+
+1. The original matrix remains unchanged.
+2. The matrix can contain both integer and floating-point numbers.
+3. The input matrix should be provided as a list of lists, where each inner list represents a row of the matrix.
+4. The divisor must be a number (integer or float) and should not be zero.
+
+Invalid Matrices
+================
+
+If the input matrix does not meet the specified requirements, the function raises a `TypeError`.
+
+Example:
+--------
+>>> matrix = [
+...     ['1', 2],
+...     [2, 'q']
+... ]
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+  TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Additionally, all rows of the matrix must have the same size.
+
+Example:
+--------
+>>> matrix = [
+...     [1, 2, 3],
+...     [1, 2]
+... ]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+  TypeError: Each row of the matrix must have the same size
+
+Invalid Divisors
+================
+
+If the divisor is not a number or if it is zero, the function raises an appropriate exception.
+
+Example:
+--------
+>>> matrix = [
+...     [1, 2],
+...     [1, 2]
+... ]
+>>> print(matrix_divided(matrix, "number"))
+Traceback (most recent call last):
+  TypeError: div must be a number
+
+Example:
+--------
+>>> matrix = [
+...     [1, 2],
+...     [2, 1]
+... ]
+>>> print(matrix_divided(matrix, 0))
+Traceback (most recent call last):
+  ZeroDivisionError: division by zero
